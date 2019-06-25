@@ -1,16 +1,19 @@
-language: 'php'
+language: php
 php:
     - '7.3'
-
 cache:
     directories:
-        - $HOME/.composer/cache
-
-before_install: true
+        - "$HOME/.composer/cache"
 
 install:
     - composer install
 
 script:
-    - ./vendor/bin/php-cs-fixer fix --dry-run  --diff --verbose
+    - "./vendor/bin/php-cs-fixer fix --dry-run  --diff --verbose"
     - phpunit tests
+
+deploy:
+    provider: heroku
+    api_key:
+        secure: gUTmcRitONTNsKMaFspEoOg6HBjs9jT2X+q7O+neNVnpuyqUwoh+iUAOY8M2AXjUwwgjWefMZHubR+xN6lp0j08K7818hKD983m+LAP2bRJwOomAkKf7AbVAlzceVnJP7tlUqHnZ2uz7JN23RUgggw4z8TYonQ+4drNbYAZqzcHrdm6i8zlTHF9IEoK3T7nYLk5rYHM/XfgAbg+6JMSIWKW1tbH19YUYDG5R/pK6oTC1pTPrtX9Bwc/50NfzHpLsDT0QDjYA0B8jlEXUDnGlmSUfeNu1dqCHAN8Mq8/0hVaQdIncbjeSInMMm4WhGD5YjaLk9G2yUjYnWwJ5Mp7nz+Hg78J1jfJq+s9oweG36r7DZx+/11oPwL/fgdlLPUzljCF9Rl4u5ed6KTI6IdCpag7eTZtfP624ZAH95NHhQ3SKFiuoAGrZnPrnYhFEBE7dmJB3SBoMaRHebUCeZVVXAwihp77kkRbJXR1c4ojeoDHvtODEKj03fBawHD9b/DIgu17nqkNiqkJanEPf0iUQutYw0psx1nrWOlG73XslHcqvN2zVWsLb4+pmnSvdUW1oBLbjdTcHESMnokkfEbWKBfcOWj58ytikpGk7SjEoefUtWbjwZmOLG3to6HcXLHccvrp75OxfCUrRUnszBRx0iEUXljqcL0SZI2v4BwxL7vM=
+    app: ipssi-symfony-1
