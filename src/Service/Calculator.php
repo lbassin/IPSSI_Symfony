@@ -7,11 +7,15 @@ namespace App\Service;
 class Calculator
 {
     public
-    function add
-
-        (int $firstNumber, int $secondNumber): int
+    function
+    add(int $firstNumber, int $secondNumber): int
     {
-        return $firstNumber +
-            $secondNumber;
+        $test = 32;
+
+        if ($test == 'salut') {
+            echo 'ok';
+        }
+
+        return $firstNumber + $secondNumber;
     }
-}
+} ?>
